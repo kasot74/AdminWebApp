@@ -1,0 +1,4 @@
+/.vs
+/AdminWebApp.Server/bin
+/AdminWebApp.Server/obj
+/AdminWebApp.Server/appsettings.Development.json
