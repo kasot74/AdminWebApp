@@ -24,26 +24,26 @@ export class UserListComponent implements OnInit {
       (users: User[]) => {
         this.users = users;
         this.isLoading = false;
-        console.log('加载的用户:', this.users);
+        console.log('加載的使用者:', this.users);
       },
       error => {
-        this.error = '加载用户时出错: ' + error.message;
+        this.error = '加載使用者時出錯: ' + error.message;
         this.isLoading = false;
-        console.error('加载用户时出错:', error);
+        console.error('加載使用者時出錯:', error);
       }
     );
   }
 
   deleteUser(id: number): void {
-    if (confirm('确定要删除这个用户吗？')) {
+    if (confirm('確定要刪除這個使用者嗎？')) {
       this.userService.deleteUser(id).subscribe(
         () => {
           this.users = this.users.filter(user => user.userid !== id);
-          console.log('用户已删除');
+          console.log('使用者已刪除');
         },
         error => {
-          console.error('删除用户时出错:', error);
-          this.error = '删除用户时出错: ' + error.message;
+          console.error('刪除使用者時出錯:', error);
+          this.error = '刪除使用者時出錯: ' + error.message;
         }
       );
     }

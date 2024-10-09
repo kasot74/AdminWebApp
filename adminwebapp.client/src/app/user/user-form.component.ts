@@ -39,7 +39,7 @@ export class UserFormComponent implements OnInit {
   loadUser(id: number): void {
     this.userService.getUser(id).subscribe(
       user => this.userForm.patchValue(user),
-      error => console.error('加载用户时出错:', error)
+      error => console.error('載入使用者時出錯:', error)
     );
   }
 
@@ -53,18 +53,18 @@ export class UserFormComponent implements OnInit {
         user.userid = this.userId;
         this.userService.updateUser(user).subscribe(
           () => {
-            console.log('用户已更新');
+            console.log('使用者已更新');
             this.router.navigate(['/users']);
           },
-          error => console.error('更新用户时出错:', error)
+          error => console.error('更新使用者時出錯:', error)
         );
       } else {
         this.userService.createUser(user).subscribe(
           () => {
-            console.log('用户已创建');
+            console.log('使用者已創建');
             this.router.navigate(['/users']);
           },
-          error => console.error('创建用户时出错:', error)
+          error => console.error('創建使用者時出錯:', error)
         );
       }
     }
