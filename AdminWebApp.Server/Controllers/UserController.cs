@@ -21,7 +21,7 @@ namespace AdminWebApp.Server.Controllers
         public UsersController(ILogger<UsersController> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetConnectionString("DefaultConnection") ?? "";
         }
 
         [HttpGet]

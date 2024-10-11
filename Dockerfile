@@ -27,6 +27,7 @@ WORKDIR "/src/AdminWebApp.Server"
 RUN dotnet build "./AdminWebApp.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # 此階段可用來發佈要複製到最終階段的服務專案
+WORKDIR "/src/AdminWebApp.Server"
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./AdminWebApp.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
@@ -35,4 +36,5 @@ RUN dotnet publish "./AdminWebApp.Server.csproj" -c $BUILD_CONFIGURATION -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
 ENTRYPOINT ["dotnet", "AdminWebApp.Server.dll"]

@@ -11,9 +11,16 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularDevServer",
         builder => builder
-            .WithOrigins("https://localhost:4200")
+            .WithOrigins("http://localhost:4200")
             .AllowAnyMethod()
             .AllowAnyHeader());
+    
+    options.AddPolicy("AllowAngularDevServer",
+    builder => builder
+        .WithOrigins("http://localhost:8987")
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+    
 });
 
 var app = builder.Build();
@@ -28,7 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
