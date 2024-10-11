@@ -1,5 +1,5 @@
-<div class="container mt-5">
-  <h2 class="mb-4">帳號列表T</h2>
+<div class="container mt-5 semi-transparent-bg">
+  <h2 class="mb-4">帳號列表</h2>
   <div *ngIf="isLoading" class="text-center">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">加載中...</span>
@@ -9,8 +9,8 @@
     {{ error }}
   </div>
   <div *ngIf="!isLoading && !error" class="table-responsive">
-    <table class="table table-striped table-hover">
-      <thead class="table-light">
+    <table class="table custom-table">
+      <thead>
         <tr>
           <th>ID</th>
           <th>帳號</th>
@@ -22,10 +22,10 @@
           <td>{{ user.userid }}</td>
           <td>{{ user.username }}</td>
           <td>
-            <button class="btn btn-sm btn-outline-primary me-2" [routerLink]="['/user', user.userid, 'edit']">
+            <button class="btn btn-sm btn-primary me-2" [routerLink]="['/user', user.userid, 'edit']">
               <i class="bi bi-pencil"></i> 修改
             </button>            
-            <button class="btn btn-sm btn-outline-danger" (click)="deleteUser(user.userid)">
+            <button class="btn btn-sm btn-danger" (click)="deleteUser(user.userid)">
               <i class="bi bi-trash"></i> 删除
             </button>
           </td>
