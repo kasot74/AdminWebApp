@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user/user-list.component';
 import { UserFormComponent } from './user/user-form.component';
+import { BusListComponent } from './bus/bus-list.component';
+import { FilterByTypePipe } from './pipes/filter-by-type.pipe';
 @NgModule({
   declarations: [
     AppComponent,    
     UserListComponent,
-    UserFormComponent
+    UserFormComponent,
+    BusListComponent,
+    FilterByTypePipe
   ],
   imports: [
     BrowserModule, 
