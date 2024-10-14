@@ -47,5 +47,6 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         script: |    
           cd /home/${{ secrets.EC2_USER }}/webAdmin
+          docker-compose down
           docker-compose pull   
-          docker-compose up -d
+          docker-compose up -d --force-recreate
