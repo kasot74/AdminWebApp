@@ -31,12 +31,12 @@ jobs:
 
     - name: Tag Docker image
       env: 
-        ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }/admin/app} 
+        ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}/admin/app
       run: docker tag adminapp:latest "$ECR_REPOSITORY:latest"
 
     - name: Push Docker image to ECR
       env: 
-        ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }/admin/app}  
+        ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}/admin/app
       run: docker push "$ECR_REPOSITORY:latest"
 
     - name: SSH commands to load and run the Docker container
