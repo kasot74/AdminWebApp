@@ -26,13 +26,11 @@ export class BusListComponent implements OnInit {
       (businfo: Bus[]) => {
         this.buses = businfo;
         this.extractUniqueTypes();
-        this.isLoading = false;
-        console.log('加載的使用者:', this.buses);
+        this.isLoading = false;        
       },
       error => {
         this.error = '加載使用者時出錯: ' + error.message;
-        this.isLoading = false;
-        console.error('加載使用者時出錯:', error);
+        this.isLoading = false;        
       }
     );
   }

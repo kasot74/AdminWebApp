@@ -24,13 +24,11 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe(
       (users: User[]) => {
         this.users = users;
-        this.isLoading = false;
-        console.log('加載的使用者:', this.users);
+        this.isLoading = false;        
       },
       error => {
         this.error = '加載使用者時出錯: ' + error.message;
-        this.isLoading = false;
-        console.error('加載使用者時出錯:', error);
+        this.isLoading = false;        
       }
     );
   }
