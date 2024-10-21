@@ -45,11 +45,9 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
-        AWS_REGION: ${{ secrets.AWS_REGION }}  
-        ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}  
         script: |    
+          bash /home/${{ secrets.EC2_USER }}/aws.bash
           cd /home/${{ secrets.EC2_USER }}/webAdmin
-          aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin "$ECR_REPOSITORY"
           docker-compose down
           docker-compose pull   
           docker-compose up -d --force-recreate
