@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     return this.authService.isAuthenticated().pipe(
       map(isAuth => {
         if (!isAuth) {
-          this.router.navigate(['/login']);
+          window.location.href = 'https://herry537.sytes.net/Account/Login';
           return false;
         }
         return true;
