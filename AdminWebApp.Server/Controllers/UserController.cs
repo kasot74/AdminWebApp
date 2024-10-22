@@ -104,17 +104,17 @@ namespace AdminWebApp.Server.Controllers
         public async Task<IActionResult> UpdateUser(int id, UserAccount user)
         {
             if (id != user.Userid) return BadRequest();
-
+            var salt = GenerateSalt();
+            var passwordHash = ComputeHash(user.Password, salt);
             using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-                using (var command = new SqlCommand("UPDATE UserAccounts SET Username = @Username, LastLoginAt = @LastLoginAt, IsActive = @IsActive WHERE UserID = @UserID", connection))
+                using (var command = new SqlCommand("UPDATE UserAccounts SET Username = @Username, PasswordHash = @PasswordHash,PasswordSalt = @PasswordSalt WHERE UserID = @UserID", connection))
                 {
                     command.Parameters.AddWithValue("@UserID", id);
                     command.Parameters.AddWithValue("@Username", user.Username);
-                    command.Parameters.AddWithValue("@LastLoginAt", user.LastLoginAt ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@IsActive", user.IsActive ?? (object)DBNull.Value);
-
+                    command.Parameters.AddWithValue("@PasswordHash", passwordHash);
+                    command.Parameters.AddWithValue("@PasswordSalt", salt);
                     int rowsAffected = await command.ExecuteNonQueryAsync();
                     if (rowsAffected == 0) return NotFound();
                 }
