@@ -1,3 +1,5 @@
+using AdminWebApp.Server.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,7 +24,8 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader());
     
 });
-
+// ª`¤JMongoDBªA°È
+builder.Services.AddSingleton<MongoDbService>();
 var app = builder.Build();
 
 app.UseDefaultFiles();
