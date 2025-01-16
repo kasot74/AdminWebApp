@@ -37,7 +37,7 @@ export class UserListComponent implements OnInit {
     if (confirm('確定要刪除這個使用者嗎？')) {
       this.userService.deleteUser(id).subscribe(
         () => {
-          this.users = this.users.filter(user => user.userid !== id);
+          this.users = this.users.filter(user => user.id !== id);
           console.log('使用者已刪除');
         },
         error => {

@@ -51,7 +51,7 @@ export class UserFormComponent implements OnInit {
         this.userForm.value;
   
       if (this.isEditMode && this.userId) {
-        user.userid = this.userId;
+        user.id = this.userId;
         this.userService.updateUser(user).subscribe(
           () => {
             console.log('使用者已更新');
