@@ -57,7 +57,7 @@ namespace AdminWebApp.Server.Controllers
             
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUser(string id)
         {
             await _userRepository.DeleteUserAsync(id);
