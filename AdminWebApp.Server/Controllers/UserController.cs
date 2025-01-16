@@ -42,6 +42,20 @@ namespace AdminWebApp.Server.Controllers
             var user = users.Find(u => u.Id == id);
             return Ok(user);
         }
+        
+        public class NewUser {
+            public string username { get; set; }
+            public string password { get; set; }
+        }
+        [HttpPost]
+        public async Task<ActionResult<User>> CreateUser([FromBody] NewUser x)
+        {
+            await _userRepository.CreateUserAsync(x.username, x.password);
+            var users = await _userRepository.GetAllUsersAsync();
+            var user = users.Find(u => u.Id == x.username);
+            return Ok(user);
+            
+        }
 
 
     }
