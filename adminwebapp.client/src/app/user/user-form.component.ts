@@ -12,7 +12,7 @@ import { User } from './user.model';
 export class UserFormComponent implements OnInit {
   userForm: FormGroup;
   isEditMode = false;
-  userId: number | null = null;
+  userId: string  ="";
 
   constructor(
     private fb: FormBuilder,
@@ -30,14 +30,14 @@ export class UserFormComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (params['id'] && params['id'] !== 'new') {
         this.isEditMode = true;
-        this.userId = +params['id'];
+        this.userId =  params['id'];
         this.loadUser(this.userId);
         this.userForm.get('username')?.disable();
       }
     });
   }
 
-  loadUser(id: number): void {
+  loadUser(id: string): void {
     this.userService.getUser(id).subscribe(
       user => this.userForm.patchValue(user),
       error => console.error('載入使用者時出錯:', error)

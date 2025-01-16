@@ -33,7 +33,7 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  deleteUser(id: number): void {
+  deleteUser(id: string): void {
     if (confirm('確定要刪除這個使用者嗎？')) {
       this.userService.deleteUser(id).subscribe(
         () => {
