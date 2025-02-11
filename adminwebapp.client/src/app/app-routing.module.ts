@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserListComponent } from './user/user-list.component';
 import { UserFormComponent } from './user/user-form.component';
 import { BusListComponent } from './bus/bus-list.component';
+import { EquationListComponent } from './equation/equation-list.component';
 import { AuthGuard } from './auth/auth.guard'; 
 
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'user/new', component: UserFormComponent, canActivate: [AuthGuard] },
   { path: 'user/:id/edit', component: UserFormComponent, canActivate: [AuthGuard] },
   { path: 'bus', component: BusListComponent },
+  { path: 'equation', component: EquationListComponent },  
   { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 

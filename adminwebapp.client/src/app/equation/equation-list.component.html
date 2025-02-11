@@ -1,0 +1,28 @@
+<div class="container mt-5 semi-transparent-bg">
+  <h2 class="mb-4">人生方程式</h2>
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">加載中...</span>
+    </div>
+  </div>    
+  <div *ngIf="!isLoading">
+    <div class="table-responsive">
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th>序號</th>
+            <th>名稱</th>
+            <th>公式</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let equation of equations">
+            <td>{{ equation.id}}</td>
+            <td>{{ equation.name }}</td>
+            <td>{{ equation.equation }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
