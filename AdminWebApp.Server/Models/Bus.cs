@@ -8,4 +8,11 @@ namespace AdminWebApp.Server.Models
         public required  string color { get; set; } // 顏色
         public required  string type { get; set; } // 類型
     }
+
+    public class Equationinfo
+    {
+        public required string Name { get; set; } // 名稱
+
+        public required string Equation { get; set; } // 公式
+    }
 }
