@@ -22,6 +22,7 @@ namespace AdminWebApp.Server.Controllers
         {
             _logger = logger;
             _clientFactory = clientFactory;
+            _mongoDbService = mongoDbService;
         }
         
         [HttpGet]
@@ -35,8 +36,8 @@ namespace AdminWebApp.Server.Controllers
         {
             var equation = new EquationDoc
             {
-                Name = doc.Name,
-                Equation = doc.Equation
+                Name = doc.name,
+                Equation = doc.equation
             };
 
             await _mongoDbService.InsertEquationAsync(equation);
