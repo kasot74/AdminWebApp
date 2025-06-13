@@ -8,6 +8,7 @@ import { UserListComponent } from './user/user-list.component';
 import { UserFormComponent } from './user/user-form.component';
 import { BusListComponent } from './bus/bus-list.component';
 import { EquationListComponent } from './equation/equation-list.component';
+import { EquationFormComponent } from './equation/equation-form.component';
 import { FilterByTypePipe } from './pipes/filter-by-type.pipe';
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FilterByTypePipe } from './pipes/filter-by-type.pipe';
     UserFormComponent,
     BusListComponent,
     EquationListComponent,
+    EquationFormComponent,
     FilterByTypePipe
   ],
   imports: [
