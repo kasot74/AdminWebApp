@@ -26,6 +26,11 @@ namespace AdminWebApp.Server.Service
             await _equationCollection.InsertOneAsync(equation);
         }
 
+        public async Task DeleteEquationAsync(string id)
+        {
+            await _equationCollection.DeleteOneAsync(u => u.Id == id);
+        }
+
         public async Task<List<EquationDoc>> GetAllEquationsAsync()
         {
             return await _equationCollection.Find(_ => true).ToListAsync();

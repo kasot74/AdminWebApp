@@ -14,4 +14,12 @@ export class EquationService {
   getData(): Observable<Equation[]> {
     return this.http.get<Equation[]>(this.apiUrl)
   }
+
+  create(user: Equation): Observable<Equation> {
+    return this.http.post<Equation>(this.apiUrl, user);
+  }
+
+  delete(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

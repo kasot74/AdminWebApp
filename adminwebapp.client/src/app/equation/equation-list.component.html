@@ -4,25 +4,36 @@
     <div class="spinner-border" role="status">
       <span class="visually-hidden">加載中...</span>
     </div>
-  </div>    
+  </div>
   <div *ngIf="!isLoading">
     <div class="table-responsive">
       <table class="table custom-table">
         <thead>
           <tr>
-            <th>序號</th>
+            <!--<th>序號</th>-->
             <th>名稱</th>
             <th>公式</th>
+            <th>操作</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let equation of equations">
-            <td>{{ equation.id}}</td>
+            <!--<td>{{ equation.id}}</td>-->
             <td>{{ equation.name }}</td>
             <td>{{ equation.equation }}</td>
+            <td>              
+              <button class="btn btn-sm btn-danger" (click)="delete(equation.id)">
+                <i class="bi bi-trash"></i> 删除
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="mt-3">
+    <button class="btn btn-primary" routerLink="/equation/new">
+      <i class="bi bi-plus-circle"></i> 新增
+    </button>
   </div>
 </div>

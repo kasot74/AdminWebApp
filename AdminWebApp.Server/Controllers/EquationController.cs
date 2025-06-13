@@ -44,5 +44,14 @@ namespace AdminWebApp.Server.Controllers
             return Ok(new { message = "Equation saved successfully!" });
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteEquation(string id)
+        {
+            await _mongoDbService.DeleteEquationAsync(id);
+            
+            return Ok();
+
+        }
+
     }
 }

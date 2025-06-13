@@ -27,10 +27,25 @@ export class EquationListComponent implements OnInit {
         this.isLoading = false;        
       },
       error => {
-        this.error = '加載使用者時出錯: ' + error.message;
+        this.error = '加載時出錯: ' + error.message;
         this.isLoading = false;        
       }
     );
+  }
+
+  delete(id: string): void {
+    if (confirm('確定要刪除？')) {
+      this.equationService.delete(id).subscribe(
+        () => {
+          this.equations = this.equations.filter(equations => equations.id !== id);
+          console.log('已刪除');
+        },
+        error => {
+          console.error('刪除時出錯:', error);
+          this.error = '刪除時出錯: ' + error.message;
+        }
+      );
+    }
   }
   
 }

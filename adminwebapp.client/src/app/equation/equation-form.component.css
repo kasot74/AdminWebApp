@@ -1,0 +1,13 @@
+﻿.semi-transparent-bg {
+    background-color: rgba(247,190,200, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .custom-table {
+    background-color: rgba(247,190,200, 0.7);
+  }
+  
+  .custom-table th, .custom-table td {
+    border-color: rgba(247,190,200, 0.1);
+  }
